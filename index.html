@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="ToDoListApp">
+	<head>
+		<meta charset="utf-8" />
+		<!--<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>-->
+		<!-- Include Bootstrap -->
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- Include AngularJS -->
+		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+		<!-- Include Firebase -->
+		<!--<script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
+		<script type="text/javascript" src="bower_components/angularfire/dist/angularfire.min.js"></script>-->
+		<script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script type="text/javascript" src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<title>To Do List</title>
+	</head>
+	<body ng-controller="ToDoCtrl">
+		<div class="container">
+			<h4 class="list-group-item title">Angular To Do List</h4>
+			<!-- List of todos -->
+			<div class="list-group-item" ng-repeat="todo in todos">
+				<input type="checkbox" ng-model="todo.done" />
+				<input type="text" ng-model="todo.text" class="todo" />
+				<a href="" ng-click="move($index, 'up')"><span class="glyphicon glyphicon-upload"></span></a>
+				<a href="" ng-click="move($index, 'down')"><span class="glyphicon glyphicon-download"></span></a>
+				<a href="" ng-click="removeTodo($index)"><span class="glyphicon glyphicon-remove-circle"></span></a>
+			</div>
+
+			<!-- Preview as you type -->
+			<div class="list-group-item" ng-show="todoText">
+				<input type="checkbox" disabled="true" />
+				<input type="text" disabled="true" class="todo" placeholder="{{ todoText }}" />
+			</div>
+
+			<!-- Add todo form -->
+			<form ng-submit="AddTodo()" class="list-group-item">
+				<input type="text" ng-model="todoText" />
+				<input type="submit" />
+			</form>
+		</div>
+	</body>
+</html>
