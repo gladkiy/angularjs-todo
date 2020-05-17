@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="ToDoListApp">
-	<head>
-		<meta charset="utf-8" />
-		<!--<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>-->
-		<!-- Include Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<title>To Do List</title>
-	</head>
-	<body ng-controller="ToDoCtrl">
-		<div class="container">
-			<h4 class="list-group-item title">Angular To Do List</h4>
-			<!-- List of todos -->
-			<div class="list-group-item" ng-repeat="todo in todos">
-				<input type="checkbox" ng-model="todo.done" />
-				<input type="text" ng-model="todo.text" class="todo" />
-				<a href="" ng-click="move($index, 'up')"><span class="glyphicon glyphicon-upload"></span></a>
-				<a href="" ng-click="move($index, 'down')"><span class="glyphicon glyphicon-download"></span></a>
-				<a href="" ng-click="removeTodo($index)"><span class="glyphicon glyphicon-remove-circle"></span></a>
-			</div>
+    <head>
+        <meta charset="utf-8" />
+        <title>To Do List AngularJs</title>
+        <!-- Include Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body ng-controller="ToDoCtrl">
+        <div class="container">
+            <h4 class="list-group-item title">AngularJs To Do List</h4>
+            <!-- List of todos -->
+            <div class="list-group-item" ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done" />
+                <input type="text" ng-model="todo.text" class="todo" />
+                <a href="javascript:void(0)" ng-click="move($index, 'up')"><span class="glyphicon glyphicon-upload"></span></a>
+                <a href="javascript:void(0)" ng-click="move($index, 'down')"><span class="glyphicon glyphicon-download"></span></a>
+                <a href="javascript:void(0)" ng-click="remove($index)"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            </div>
 
-			<!-- Preview as you type -->
-			<div class="list-group-item" ng-show="todoText">
-				<input type="checkbox" disabled="true" />
-				<input type="text" disabled="true" class="todo" placeholder="{{ todoText }}" />
-			</div>
+            <!-- Preview as you type -->
+            <div class="list-group-item" ng-show="todoText">
+                <input type="checkbox" disabled="true" />
+                <input type="text" disabled="true" class="todo" placeholder="{{ todoText }}" />
+            </div>
 
-			<!-- Add todo form -->
-			<form ng-submit="AddTodo()" class="list-group-item">
-				<input type="text" ng-model="todoText" />
-				<input type="submit" />
-			</form>
-		</div>
+            <!-- Add todo form -->
+            <form ng-submit="add()" class="list-group-item">
+                <input type="text" ng-model="todoText" />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
 
-		<!-- Include AngularJS -->
-		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-		<!-- Include Firebase -->
-		<!--<script type="text/javascript" src="bower_components/firebase/firebase.js"></script>
-		<script type="text/javascript" src="bower_components/angularfire/dist/angularfire.min.js"></script>-->
-		<script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
-		<script type="text/javascript" src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
-	</body>
+        <!-- Include AngularJS -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+        <!-- Include Firebase -->
+        <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <script type="text/javascript" src="https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
 </html>
